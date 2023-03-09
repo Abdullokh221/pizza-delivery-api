@@ -18,6 +18,8 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.shortcuts import redirect
+from . import views
 
 ...
 
@@ -33,6 +35,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path("", views.empty_url),
     path("admin/", admin.site.urls),
     path('auth/', include('authentication.urls')),
     path('orders/', include('orders.urls')),
